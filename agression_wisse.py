@@ -63,7 +63,7 @@ def rm_zeros(X_train, y_train):
 localw = "bin"
 stop = False
 
-embedmodel = "../data/fastText/indexed_wikiEn_Full_H300/"
+embedmodel = "../data/fastText/fstx_20d_indexed/"
 
 TFIDFvectorizer = TfidfVectorizer(min_df=1,
                 encoding="latin-1",
@@ -88,7 +88,7 @@ stream_dev = csv.DictReader(f1, fieldnames=('title', 'body', 'topics'))
 vectorizer = wisse(embeddings=embeddings, vectorizer=TFIDFvectorizer, 
                                                  tf_tfidf=True, combiner='sum')
 all_classes = np.array([0, 1])
-positive_class = 'NAG'
+positive_class = 'OAG'
 
 partial_fit_classifiers = {
     'SGD': SGDClassifier(),
