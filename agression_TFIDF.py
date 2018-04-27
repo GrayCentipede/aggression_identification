@@ -49,8 +49,8 @@ from Wisse import wisse
 #                                 default = 'binary'""", default = "binary")
 # args = parser.parse_args()
 vectorizer = TfidfVectorizer(#sublinear_tf=True,
-                            binary=True, 
-                            analyzer='char', 
+                            binary=True,
+                            analyzer='char',
                             ngram_range=(1, 5))
 
 # The training set generator
@@ -67,7 +67,7 @@ stream_dev = csv.DictReader(f1, fieldnames=('title', 'body', 'topics'))
 
 all_classes = np.array([0, 1])
 # The class to be learned and tested
-positive_class = 'CAG'
+positive_class = 'NAG'
 
 partial_fit_classifiers = {
     'SGD': SGDClassifier(),
