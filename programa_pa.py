@@ -12,8 +12,8 @@ import pandas as pd
 from pdb import set_trace as st
 
 grid = True
-test_file = "data/agr_en_fb_test.csv"
-
+#test_file = "data/agr_en_fb_test.csv"
+test_file = "data/agr_en_sm_test.csv"
 f = open("data/agr_en_train.csv")
 stream = csv.DictReader(f, fieldnames=('title', 'body','topic'))
 X_train, y_train = zip(*[(x['body'], x['topic']) for x in stream])
@@ -76,7 +76,7 @@ else:
 clf = sorted(performances, key=lambda x: x[2], reverse=True)[0]
 gs_clf = clf[0]
 predicted = clf[1]
-pd.DataFrame(list(gs_clf.cv_results_.items())).to_csv("stats_PA_fb_en.csv")
+pd.DataFrame(list(gs_clf.cv_results_.items())).to_csv("stats_PA_sm_en.csv")
 # imprimir evaluacion de predicciones con el conjunto dev
 print("F1_macro: %f\n" % clf[2])
 print(classification_report(y_dev, predicted))
@@ -86,7 +86,7 @@ if grid:
 else:
     predicted = text_clf.predict(X_dev)
 # imprimir prediccinoes con el conjunto test (competencia)
-with open("results_PA_fb_en.csv", 'w') as f:
+with open("results_PA_sm_en.csv", 'w') as f:
     f.write("%s\n" % gs_clf.best_estimator_)
     for id, l in zip(test_titles, predicted):
         f.write("%s,%s\n" % (id, l))
