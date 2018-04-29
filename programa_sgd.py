@@ -12,6 +12,11 @@ import pandas as pd
 
 test_file = "data/agr_en_sm_test.csv"
 
+stats =     "stats_SGD_sm_en.csv"
+estimator = "estimator_SGD_sm_en.csv"
+results =   "results_SVC_SGD_sm_en.csv"
+
+
 f = open("data/agr_en_train.csv")
 stream_train = csv.DictReader(f, fieldnames=('title', 'body','topic'))
 X_train, y_train = zip(*[(x['body'], x['topic']) for x in stream_train])
@@ -85,7 +90,8 @@ for text_clf, parm in zip(text_clfs, parameters):
 clf = sorted(performances, key=lambda x: x[2], reverse=True)[0]
 gs_clf = clf[0]
 predicted = clf[1]
-pd.DataFrame(list(gs_clf.cv_results_.items())).to_csv("stats_SGD_sm_en.csv")
+pd.DataFrame(list(gs_clf.cv_results_.items())).to_csv(stats)
+pd.DataFrame(list(gs_clf.best_params_.items())).to_csv(estimator)
 # imprimir evaluacion de predicciones con el conjunto dev
 print("F1_macro: %f" % clf[2])
 print(classification_report(y_dev, predicted))
@@ -93,8 +99,8 @@ print(classification_report(y_dev, predicted))
 #predicted = text_clf.predict(X_test)
 predicted = gs_clf.predict(X_test)
 # imprimir prediccinoes con el conjunto test (competencia)
-with open("results_SVC_SGD_sm_en.csv", 'w') as f:
-    f.write("%s\n" % gs_clf.best_estimator_)
+with open(results, 'w') as f:
+
     for id, l in zip(test_titles, predicted):
         f.write("%s,%s\n" % (id, l))
 #metodo_para_imprimir_predicciones(predicted)
