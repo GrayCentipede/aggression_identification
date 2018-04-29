@@ -14,12 +14,13 @@ from pdb import set_trace as st
 
 
 grid = True
-#test_file = "data/agr_en_fb_test.csv"
-test_file = "data/agr_en_sm_test.csv"
+t = 'fb'
 
-stats =     "stats_SGD_sm_en.csv"
-estimator = "estimator_SGD_sm_en.csv"
-results =   "results_SVC_SGD_sm_en.csv"
+test_file = "data/agr_en_%s_test.csv" % t
+
+stats =     "stats_PA_%s_en.csv" %  t
+estimator = "estimator_PA_%s_en.csv" %  t
+results =   "results_PA_%s_en.csv" % t
 
 f = open("data/agr_en_train.csv")
 stream = csv.DictReader(f, fieldnames=('title', 'body','topic'))
