@@ -1,5 +1,4 @@
-Pipeline(memory=None,
-     steps=[('tfidf', TfidfVectorizer(analyzer='char', binary=True, decode_error='strict',
+Pipeline(steps=[('tfidf', TfidfVectorizer(analyzer='char', binary=True, decode_error='strict',
         dtype=<class 'numpy.int64'>, encoding='utf-8', input='content',
         lowercase=True, max_df=1.0, max_features=None, min_df=1,
         ngram_range=(1, 5), norm='l2', preprocessor=None, smooth_idf=True,

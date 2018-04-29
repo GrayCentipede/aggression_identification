@@ -1438,3 +1438,14 @@
   if hasattr(X, 'dtype') and np.issubdtype(X.dtype, np.float):
 /usr/local/lib/python3.4/dist-packages/sklearn/feature_extraction/text.py:1039: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
   if hasattr(X, 'dtype') and np.issubdtype(X.dtype, np.float):
+/usr/local/lib/python3.4/dist-packages/sklearn/feature_extraction/text.py:1039: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  if hasattr(X, 'dtype') and np.issubdtype(X.dtype, np.float):
+F1_macro: 0.560124
+             precision    recall  f1-score   support
+
+        CAG       0.49      0.60      0.54      1057
+        NAG       0.67      0.69      0.68      1233
+        OAG       0.60      0.38      0.46       711
+
+avg / total       0.59      0.58      0.58      3001
+
