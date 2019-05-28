@@ -1,0 +1,5 @@
+,0,1
+0,tfidf__binary,False
+1,tfidf__sublinear_tf,True
+2,tfidf__stop_words,english
+3,clf__C,0.1
